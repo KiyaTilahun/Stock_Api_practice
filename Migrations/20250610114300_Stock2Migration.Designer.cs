@@ -4,6 +4,7 @@ using AspApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspApi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250610114300_Stock2Migration")]
+    partial class Stock2Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,8 +68,7 @@ namespace AspApi.Migrations
 
                     b.Property<string>("Industry")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("LastDiv")
                         .HasColumnType("decimal(18,2)");
@@ -84,38 +86,6 @@ namespace AspApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stocks", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompanyName = "Apple Inc.",
-                            Industry = "Technology",
-                            LastDiv = 0.22m,
-                            MarketCap = 2500000000000L,
-                            Purchase = 150.00m,
-                            Symbol = "AAPL"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CompanyName = "Microsoft Corp.",
-                            Industry = "Technology",
-                            LastDiv = 0.56m,
-                            MarketCap = 2000000000000L,
-                            Purchase = 250.00m,
-                            Symbol = "MSFT"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CompanyName = "Tesla Inc.",
-                            Industry = "Automobile",
-                            LastDiv = 0.00m,
-                            MarketCap = 800000000000L,
-                            Purchase = 700.00m,
-                            Symbol = "TSLA"
-                        });
                 });
 
             modelBuilder.Entity("AspApi.Models.Comment", b =>

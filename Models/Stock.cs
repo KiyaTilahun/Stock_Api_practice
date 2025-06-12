@@ -13,7 +13,7 @@ namespace AspApi.Models
         public decimal LastDiv { get; set; }
         public string Industry { get; set; } = string.Empty;
         public long MarketCap { get; set; }
-        public List<string> MyProperty { get; set; } = new List<string>();
+        public List<Comment> Comments { get; set; } = new List<Comment>();
 
     }
 }

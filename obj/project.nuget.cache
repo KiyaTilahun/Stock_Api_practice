@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "BSTDPch0hU3wwsN1XzaN76F1ajmB2z7QhFojYM7+2uO5L8mpng7cUH/Mc56w1BqRroDoSyPhQELfPvy0ghk90A==",
+  "dgSpecHash": "qfmvA7E4hwdHiwyuLvPI/wyCTjsnxXmRV3Pr3p7eS4u69NWhu4c5LlGxo3zkm2vVZAgvYEFYtYHBk1yD67WNjw==",
   "success": true,
   "projectFilePath": "/home/kiya/WebNet/AspApi/AspApi.csproj",
   "expectedPackageFiles": [
     "/home/kiya/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/kiya/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
     "/home/kiya/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/kiya/.nuget/packages/mapster/7.4.2-pre02/mapster.7.4.2-pre02.nupkg.sha512",
+    "/home/kiya/.nuget/packages/mapster.core/1.2.3-pre02/mapster.core.1.2.3-pre02.nupkg.sha512",
     "/home/kiya/.nuget/packages/microsoft.aspnetcore.openapi/8.0.16/microsoft.aspnetcore.openapi.8.0.16.nupkg.sha512",
     "/home/kiya/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "/home/kiya/.nuget/packages/microsoft.build.framework/17.8.3/microsoft.build.framework.17.8.3.nupkg.sha512",

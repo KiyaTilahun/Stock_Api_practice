@@ -17,6 +17,7 @@ namespace AspApi.Data
         protected override void OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            StockSeeder.Seed(modelBuilder);
             modelBuilder.Entity<AspApi.Models.Stock>().ToTable("Stocks");
             modelBuilder.Entity<AspApi.Models.Comment>().ToTable("Comments");
         }
