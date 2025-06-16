@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspApi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250610114300_Stock2Migration")]
-    partial class Stock2Migration
+    [Migration("20250613190305_AnotherMigration2")]
+    partial class AnotherMigration2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,32 @@ namespace AspApi.Migrations
                     b.HasIndex("StockId");
 
                     b.ToTable("Comments", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Comment 1",
+                            CreatedOn = new DateTime(2023, 1, 15, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            StockId = 1,
+                            Title = "Comment 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Content = "Comment 2",
+                            CreatedOn = new DateTime(2023, 1, 15, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            StockId = 2,
+                            Title = "Comment 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Content = "Comment 2",
+                            CreatedOn = new DateTime(2023, 1, 15, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            StockId = 2,
+                            Title = "Comment 2"
+                        });
                 });
 
             modelBuilder.Entity("AspApi.Models.Stock", b =>
@@ -86,6 +112,38 @@ namespace AspApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stocks", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyName = "Apple Inc.",
+                            Industry = "Technology",
+                            LastDiv = 0.22m,
+                            MarketCap = 2500000000000L,
+                            Purchase = 150.00m,
+                            Symbol = "AAPL"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyName = "Microsoft Corp.",
+                            Industry = "Technology",
+                            LastDiv = 0.56m,
+                            MarketCap = 2000000000000L,
+                            Purchase = 250.00m,
+                            Symbol = "MSFT"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyName = "Tesla Inc.",
+                            Industry = "Automobile",
+                            LastDiv = 0.00m,
+                            MarketCap = 800000000000L,
+                            Purchase = 700.00m,
+                            Symbol = "TSLA"
+                        });
                 });
 
             modelBuilder.Entity("AspApi.Models.Comment", b =>

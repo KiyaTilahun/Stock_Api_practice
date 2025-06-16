@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace AspApi.Migrations
 {
     /// <inheritdoc />
-    public partial class StockMigration : Migration
+    public partial class AnotherMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,8 +24,7 @@ namespace AspApi.Migrations
                     Purchase = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     LastDiv = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Industry = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MarketCap = table.Column<long>(type: "bigint", nullable: false),
-                    MyProperty = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MarketCap = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,6 +51,26 @@ namespace AspApi.Migrations
                         principalTable: "Stocks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Stocks",
+                columns: new[] { "Id", "CompanyName", "Industry", "LastDiv", "MarketCap", "Purchase", "Symbol" },
+                values: new object[,]
+                {
+                    { 1, "Apple Inc.", "Technology", 0.22m, 2500000000000L, 150.00m, "AAPL" },
+                    { 2, "Microsoft Corp.", "Technology", 0.56m, 2000000000000L, 250.00m, "MSFT" },
+                    { 3, "Tesla Inc.", "Automobile", 0.00m, 800000000000L, 700.00m, "TSLA" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Comments",
+                columns: new[] { "Id", "Content", "CreatedOn", "StockId", "Title" },
+                values: new object[,]
+                {
+                    { 1, "Comment 1", new DateTime(2025, 6, 13, 21, 0, 37, 887, DateTimeKind.Local).AddTicks(3857), 1, "Comment 1" },
+                    { 2, "Comment 2", new DateTime(2025, 6, 13, 21, 0, 37, 902, DateTimeKind.Local).AddTicks(3959), 1, "Comment 2" },
+                    { 3, "Comment 2", new DateTime(2025, 6, 13, 21, 0, 37, 902, DateTimeKind.Local).AddTicks(3984), 2, "Comment 2" }
                 });
 
             migrationBuilder.CreateIndex(

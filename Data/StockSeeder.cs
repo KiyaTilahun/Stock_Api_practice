@@ -9,38 +9,23 @@ namespace AspApi.Data
     {
         public static void Seed(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Stock>().HasData(
-                new Stock 
-                { 
-                    Id = 1, 
-                    Symbol = "AAPL", 
-                    CompanyName = "Apple Inc.", 
-                    Purchase = 150.00m, 
-                    LastDiv = 0.22m, 
-                    Industry = "Technology", 
-                    MarketCap = 2500000000000 
-                },
-                new Stock 
-                { 
-                    Id = 2, 
-                    Symbol = "MSFT", 
-                    CompanyName = "Microsoft Corp.", 
-                    Purchase = 250.00m, 
-                    LastDiv = 0.56m, 
-                    Industry = "Technology", 
-                    MarketCap = 2000000000000 
-                },
-                new Stock 
-                { 
-                    Id = 3, 
-                    Symbol = "TSLA", 
-                    CompanyName = "Tesla Inc.", 
-                    Purchase = 700.00m, 
-                    LastDiv = 0.00m, 
-                    Industry = "Automobile", 
-                    MarketCap = 800000000000 
-                }
-            );
+            var stocks = new List<Stock>();
+
+            for (int i = 1; i <= 30; i++)
+            {
+                stocks.Add(new Stock
+                {
+                    Id = i,
+                    Symbol = $"SYM{i.ToString("D2")}", // e.g., SYM01, SYM02
+                    CompanyName = $"Company Name {i}",
+                    Purchase = 100.00m + (i * 10.50m), // Incremental purchase price
+                    LastDiv = 0.10m + (i * 0.01m),     // Incremental dividend
+                    Industry = i % 3 == 0 ? "Technology" : (i % 3 == 1 ? "Finance" : "Healthcare"), // Varying industry
+                    MarketCap = 100000000000L + (long)(i * 10000000000L) // Incremental market cap
+                });
+            }
+
+            modelBuilder.Entity<Stock>().HasData(stocks);
         }
     }
 }

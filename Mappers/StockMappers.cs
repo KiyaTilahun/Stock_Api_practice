@@ -19,7 +19,8 @@ namespace AspApi.Mappers
                 Purchase = stock.Purchase,
                 LastDiv = stock.LastDiv,
                 Industry = stock.Industry,
-                MarketCap = stock.MarketCap
+                MarketCap = stock.MarketCap,
+                Comments=stock.Comments.Select(c=> c.ToCommentDto()).ToList()
             };
         }
 
@@ -32,7 +33,8 @@ namespace AspApi.Mappers
                 Purchase = createStockRequest.Purchase,
                 LastDiv = createStockRequest.LastDiv,
                 Industry = createStockRequest.Industry,
-                MarketCap = createStockRequest.MarketCap
+                MarketCap = createStockRequest.MarketCap,
+                
             };
         }
         public static Stock UpdateStock(this UpdateStockRequestDto updateStockRequest, Stock existingStock)
