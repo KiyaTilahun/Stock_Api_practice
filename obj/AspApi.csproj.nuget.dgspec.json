@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/kiya/WebNet/AspApi/AspApi.csproj": {}
+    "C:\\Users\\K ET\\Documents\\ASP_APIs\\Stock_Api_practice\\AspApi.csproj": {}
   },
   "projects": {
-    "/home/kiya/WebNet/AspApi/AspApi.csproj": {
+    "C:\\Users\\K ET\\Documents\\ASP_APIs\\Stock_Api_practice\\AspApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kiya/WebNet/AspApi/AspApi.csproj",
+        "projectUniqueName": "C:\\Users\\K ET\\Documents\\ASP_APIs\\Stock_Api_practice\\AspApi.csproj",
         "projectName": "AspApi",
-        "projectPath": "/home/kiya/WebNet/AspApi/AspApi.csproj",
-        "packagesPath": "/home/kiya/.nuget/packages/",
-        "outputPath": "/home/kiya/WebNet/AspApi/obj/",
+        "projectPath": "C:\\Users\\K ET\\Documents\\ASP_APIs\\Stock_Api_practice\\AspApi.csproj",
+        "packagesPath": "C:\\Users\\K ET\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\K ET\\Documents\\ASP_APIs\\Stock_Api_practice\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/kiya/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\K ET\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -78,6 +89,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.ServiceModel.Primitives": {
+              "target": "Package",
+              "version": "[8.1.2, )"
             }
           },
           "imports": [
@@ -99,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.116/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

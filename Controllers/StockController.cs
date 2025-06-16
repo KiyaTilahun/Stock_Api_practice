@@ -5,6 +5,7 @@ using AspApi.Helpers;
 using AspApi.Interfaces;
 using AspApi.Mappers;
 using MapsterMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace AspApi.Controllers
@@ -22,6 +23,7 @@ namespace AspApi.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObjects query)
         {
             var stocks = await _stockInterface.GetAllStocksAsync(query);
