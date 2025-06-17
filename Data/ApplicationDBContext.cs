@@ -15,11 +15,25 @@ namespace AspApi.Data
 
         public DbSet<AspApi.Models.Stock> Stocks { get; set; } = null!;
         public DbSet<AspApi.Models.Comment> Comments { get; set; } = null!;
+        public DbSet<AspApi.Models.Portfolio> Portfolios { get; set; } = null!;
 
 
         protected override void OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Portfolio>(x =>
+            {
+                x.HasKey(p => new { p.UserId, p.StockId });
+
+                
+                x.HasOne(p => p.User)
+                 .WithMany(u => u.Portfolios)
+                 .HasForeignKey(p => p.UserId);
+
+                x.HasOne(p => p.Stock)
+                 .WithMany(s => s.Portfolios)
+                 .HasForeignKey(p => p.StockId);
+            });
             List<IdentityRole> roles=new List<IdentityRole>
             {
                 new IdentityRole

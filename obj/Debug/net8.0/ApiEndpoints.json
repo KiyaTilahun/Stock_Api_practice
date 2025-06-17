@@ -116,6 +116,115 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AspApi.Controllers.PortfoliosController",
+    "Method": "GetPortfolios",
+    "RelativePath": "api/Portfolios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[AspApi.Models.Portfolio, AspApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AspApi.Controllers.PortfoliosController",
+    "Method": "PostPortfolio",
+    "RelativePath": "api/Portfolios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolio",
+        "Type": "AspApi.Models.Portfolio",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AspApi.Models.Portfolio",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AspApi.Controllers.PortfoliosController",
+    "Method": "GetPortfolio",
+    "RelativePath": "api/Portfolios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AspApi.Models.Portfolio",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AspApi.Controllers.PortfoliosController",
+    "Method": "PutPortfolio",
+    "RelativePath": "api/Portfolios/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "portfolio",
+        "Type": "AspApi.Models.Portfolio",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AspApi.Controllers.PortfoliosController",
+    "Method": "DeletePortfolio",
+    "RelativePath": "api/Portfolios/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AspApi.Controllers.StockController",
     "Method": "GetAll",
     "RelativePath": "api/stock",
