@@ -21,6 +21,9 @@ namespace AspApi.Data
         protected override void OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            StockSeeder.Seed(modelBuilder);
+            CommentSeeder.Seed(modelBuilder);
+            //UserSeeder.Seed(modelBuilder);
             modelBuilder.Entity<Portfolio>(x =>
             {
                 x.HasKey(p => new { p.UserId, p.StockId });
@@ -34,6 +37,7 @@ namespace AspApi.Data
                  .WithMany(s => s.Portfolios)
                  .HasForeignKey(p => p.StockId);
             });
+             var hasher = new PasswordHasher<User>();
             List<IdentityRole> roles=new List<IdentityRole>
             {
                 new IdentityRole
@@ -49,10 +53,17 @@ namespace AspApi.Data
                     NormalizedName = "USER"
                 }
             };
+         
             modelBuilder.Entity<IdentityRole>().HasData(roles);
-            
-            StockSeeder.Seed(modelBuilder);
-            CommentSeeder.Seed(modelBuilder);
+             var users =new User
+                {
+                    UserName = "Admin",
+                    Email = "admin@gmail",
+                    PasswordHash= "AQAAAAIAAYagAAAAEFiuApPrUJFi+6C+jcFSnd4hOo1Vqnl4p04g/zfCFP9SOFHeKfOAxqWZhAquYCOgaw=="
+                };
+            //modelBuilder.Entity<User>().HasData(users);
+
+
             modelBuilder.Entity<AspApi.Models.Stock>().ToTable("Stocks");
             modelBuilder.Entity<AspApi.Models.Comment>().ToTable("Comments");
             

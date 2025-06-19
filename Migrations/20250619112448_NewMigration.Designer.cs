@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspApi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250617061402_NewMigrations")]
-    partial class NewMigrations
+    [Migration("20250619112448_NewMigration")]
+    partial class NewMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

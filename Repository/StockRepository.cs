@@ -17,9 +17,11 @@ public class StockRepository : IStockInterface
     public Task<List<Stock>> GetAllStocksAsync(QueryObjects query)
     {
         var stocks= _context.Stocks.Include(c=>c.Comments).AsQueryable();
+        
         if (!string.IsNullOrWhiteSpace(query.CompanyName))
         {
             stocks = stocks.Where(c => c.CompanyName.Contains(query.CompanyName) );
+
         }
         
         if (!string.IsNullOrWhiteSpace(query.Symbol))
